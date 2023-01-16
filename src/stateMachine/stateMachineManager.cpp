@@ -232,9 +232,9 @@ void Manager::startStateMachines() noexcept
 				watchDog.registerWatch("avdecc::StateMachine", std::chrono::milliseconds{ 1000u }, true);
 
 				using Clock = std::chrono::steady_clock;
-				auto nextWakeUpTime = Clock::now() + std::chrono::milliseconds(250);
 				while (!_shouldTerminate)
 				{
+					auto nextWakeUpTime = Clock::now() + std::chrono::milliseconds(250);
 					// Check for local entities announcement
 					_advertiseStateMachine.checkLocalEntitiesAnnouncement();
 
