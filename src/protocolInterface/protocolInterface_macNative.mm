@@ -222,6 +222,10 @@ public:
 			{
 				utils::setCurrentThreadName("avdecc::StateMachine::macNative");
 
+				// We don't need this energy consuming thread
+				if constexpr (1)
+					_shouldTerminate = 1;
+
 				while (!_shouldTerminate)
 				{
 					// Check for inflight commands expiracy
