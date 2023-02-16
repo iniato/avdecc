@@ -1289,7 +1289,7 @@ ProtocolInterfaceMacNative* ProtocolInterfaceMacNative::createRawProtocolInterfa
 - (void)waitAsyncOperations {
 	// Wait for all remaining async operations to complete
 	std::unique_lock<decltype(_lockPending)> sync_lg(_lockPending);
-	_pendingCondVar.wait(sync_lg,
+	_pendingCondVar.wait_for(sync_lg, std::chrono::milliseconds(5000),
 		[self]
 		{
 			return _pendingCommands == 0;
