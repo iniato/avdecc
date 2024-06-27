@@ -188,6 +188,7 @@ avdecc_cpp_args = [
   fmt_dep.found() ? '-DHAVE_FMT=1' : [],
 
   is_darwin ? '-DHAVE_PROTOCOL_INTERFACE_MAC' : [],
+  pcap_dep.found() ? '-DHAVE_PROTOCOL_INTERFACE_PCAP' : [],
   # '-DHAVE_PROTOCOL_INTERFACE_PROXY',
   '-DHAVE_PROTOCOL_INTERFACE_VIRTUAL',
   '-DENABLE_AVDECC_FEATURE_REDUNDANCY',
