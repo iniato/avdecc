@@ -1,0 +1,7 @@
+[wrap-git]
+url = https://github.com/L-Acoustics/networkInterfaceHelper.git
+revision = 5274c50ea2fb551ce187891a2759067d930ce589
+patch_directory = nih
+
+[provide]
+dependency_names = la_networkInterfaceHelper
