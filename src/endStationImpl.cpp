@@ -56,7 +56,8 @@ entity::ControllerEntity* EndStationImpl::addControllerEntity(std::uint16_t cons
 	std::unique_ptr<entity::LocalEntityGuard<entity::ControllerEntityImpl>> controller{ nullptr };
 	try
 	{
-		auto const eid = entity::Entity::generateEID(_protocolInterface->getMacAddress(), progID, false);
+		// auto const eid = entity::Entity::generateEID(_protocolInterface->getMacAddress(), progID, false);
+		auto const eid = _protocolInterface->getDynamicEID();
 
 		try
 		{

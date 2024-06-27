@@ -62,6 +62,9 @@ ControllerEntityImpl::~ControllerEntityImpl() noexcept
 	// Unregister ourself as a ProtocolInterface observer
 	invokeProtectedMethod(&protocol::ProtocolInterface::unregisterObserver, getProtocolInterface(), this);
 
+	// Release Dynamic EID
+	invokeProtectedMethod(&protocol::ProtocolInterface::releaseDynamicEID, getProtocolInterface(), getEntityID());
+
 	// Remove controller capability delegate
 	_controllerCapabilityDelegate.reset();
 }
